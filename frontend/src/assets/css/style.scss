@@ -309,6 +309,21 @@ footer{
     }
 }
 
+.section-9{
+    .card{
+        border-radius: 40px;
+        .card-body{
+            
+        }
+    }
+}
+
+.login-form{
+    .card{
+        width: 450px;
+    }
+}
+
 @media (max-width: 576px) {
     .section-1 .hero {
         min-height: 650px;
