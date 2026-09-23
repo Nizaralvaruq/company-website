@@ -324,6 +324,11 @@ footer{
     }
 }
 
+.dashboard{
+    .card{
+        min-height: 400px;
+    }
+}
 @media (max-width: 576px) {
     .section-1 .hero {
         min-height: 650px;

@@ -38,7 +38,7 @@ class AuthenticationController extends Controller
             }else{
                 return response()->json([
                     'status'=> false,
-                    'mesagge' => 'email/password is incorrect.'
+                    'message' => 'Email/password is incorrect.'
                     ]);
             }
         }
@@ -50,7 +50,7 @@ class AuthenticationController extends Controller
 
         return response()->json([
             'status'=> true,
-            'mesagge' => 'Logout Sucessfully.'
+            'message' => 'Logout Sucessfully.'
         ]);
     }
 }
