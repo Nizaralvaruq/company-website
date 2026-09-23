@@ -329,6 +329,18 @@ footer{
         min-height: 400px;
     }
 }
+
+.sidebar{
+    ul{
+        li{
+            a{
+                display: block;
+                padding: 10px 0px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+            }
+        }
+    }
+}
 @media (max-width: 576px) {
     .section-1 .hero {
         min-height: 650px;

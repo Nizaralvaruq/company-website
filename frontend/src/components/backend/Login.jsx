@@ -3,8 +3,13 @@ import Header from '../common/Header'
 import Footer from '../common/Footer'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from './context/Auth'
 
 const Login = () => {
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
     const {
     register,
     handleSubmit,
@@ -26,7 +31,12 @@ const onSubmit = async (data) => {
         if (result.status === false) {
             toast.error(result.message);
         } else {
-            toast.success('Login berhasil');
+            const userInfo = {
+                id: result.id,
+                token: result.token,
+            };
+            login(userInfo);
+            navigate('/admin/dashboard');
         }
         //console.log(result);
         } catch (error) {
