@@ -25,7 +25,6 @@ class ServiceController extends Controller
 
     }
 
-
     /**
      * Store a newly created resource in storage.
      */
@@ -62,9 +61,21 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show($id)
     {
-        //
+        $service = Service::find($id);
+        
+        if ($service == null) {
+            return response ()->json([
+                'status'=> false,
+                'message'=> 'Service not found'
+                ]);
+        }
+
+        return response()->json([
+            'status'=> true,
+            'data'=> $service
+            ]);
     }
 
     /**
@@ -78,16 +89,60 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $id)
     {
-        //
+        $service = Service::find($id);
+        if ($service == null) {
+            return response ()->json([
+                'status'=> false,
+                'message'=> 'Service not found'
+                ]);
+        }
+
+        $validator = Validator::make($request->all(),[
+            'title' => 'required',
+            'slug' => 'required|unique:services,slug,' . $id . ',id',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status'=> 'false',
+                'errors' => $validator->errors()
+            ]);
+        }
+
+        $model = $service;
+        $model->title = $request->title;
+        $model->short_desc = $request->short_desc;
+        $model->slug = Str::slug($request->slug);
+        $model->content = $request->input('content');
+        $model->status = $request->status;
+        $model->save();
+
+        return response()->json([
+            'status'=> true,
+            'message'=> 'Service updated successfully'
+            ]);
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
-    }
+        $service = Service::find($id);
+        if ($service == null) {
+            return response ()->json([
+                'status'=> false,
+                'message'=> 'Service not found'
+                ]);
+        }
+
+        $service->delete();
+        return response()->json([
+            'status'=> true,
+            'message'=> 'Service deleted successfully'
+            ]);
+    }   
 }

@@ -22,6 +22,9 @@ Route::get('logout',[AuthenticationController::class,'logout']);
     //Service Route
 Route::get('services',[ServiceController::class,'index']);
 Route::post('services',[ServiceController::class,'store']);
+Route::put('services/{id}',[ServiceController::class,'update']);
+Route::get('services/{id}',[ServiceController::class,'show']);
+Route::delete('services/{id}',[ServiceController::class,'destroy']);
 
 //Temp Image Route
 Route::post('temp-images',[TempImageController::class,'store']);
