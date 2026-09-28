@@ -16,6 +16,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Dashboard from './components/backend/Dashboard';
 import RequireAuth from './components/common/RequireAuth';
+import {default as ShowServices} from './components/backend/services/Show';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,10 +31,17 @@ function App() {
       <Route path='/projects' element={<Projects/>} />
       <Route path='/blogs' element={<Blogs/>} />
       <Route path='/contactus' element={<ContactUs/>} />
+
       <Route path='/admin/login' element={<Login/>} />
       <Route path='/admin/dashboard' element={
         <RequireAuth>
           <Dashboard />
+        </RequireAuth>
+        } />
+
+        <Route path='/admin/services' element={
+        <RequireAuth>
+          <ShowServices />
         </RequireAuth>
         } />
 
