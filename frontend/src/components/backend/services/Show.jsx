@@ -3,6 +3,7 @@ import Header from '../../common/Header'
 import Sidebar from '../../common/Sidebar'
 import Footer from '../../common/Footer'
 import { apiUrl, token } from '../../common/http'
+import { Link } from 'react-router-dom'
 
 const Show = () => {
 
@@ -43,7 +44,7 @@ return (
                     <div className='card-body p-4'>
                         <div className='d-flex justify-content-between'>
                             <h4 className='h5'>Services</h4>
-                            <a href="#" className='btn btn-primary'>Create</a>
+                            <Link to="/admin/services/create" className='btn btn-primary'>Create</Link>
                         </div>
                         <hr />
                         <table className='table table-striped'>
