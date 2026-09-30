@@ -1,15 +1,14 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useMemo, useRef, useState } from 'react'
 import Header from '../../common/Header'
 import Sidebar from '../../common/Sidebar'
 import Footer from '../../common/Footer'
-import { Link, useNavigate } from 'react-router-dom'
-import { useForm } from "react-hook-form"
-import { apiUrl, token } from '../../common/http'
 import { toast } from 'react-toastify'
 import JoditEditor from 'jodit-react';
+import { apiUrl, token } from '../../common/http'
+import { Link, useNavigate } from 'react-router-dom'
+import { useForm } from "react-hook-form"
 
-const Create = ({placeholder}) => {
-
+const Edit = ({placeholder}) => {
     const editor = useRef(null);
     const [content, setContent] = useState('');
     const [isDisable, setIsDisable] = useState(false);
@@ -53,30 +52,31 @@ const Create = ({placeholder}) => {
             }
         }
 
-        const handleFile = async (e) => {
-            const formData = new FormData()
-            const file =e.target.files[0]
-            formData.append("image",file)
+    const handleFile = async (e) => {
+        const formData = new FormData()
+        const file =e.target.files[0]
+        formData.append("image",file)
 
-                const res= await fetch(apiUrl+'temp-images',{
-                'method' : 'POST',
-                'headers' : {
-                    'Accept' : 'application/json',
-                    'Authorization': `Bearer ${token()}`
-                },
-                body: formData
-            })
-            .then(response => response.json())
-            .then(result => {
-                if (result.status === 'false' || result.status === false) {
-                    toast.error(result.errors?.image?.[0] ?? 'Upload gambar gagal');
-                } else {
-                    setImageId(result.data.id);
-                }
-            })
+            const res= await fetch(apiUrl+'temp-images',{
+            'method' : 'POST',
+            'headers' : {
+
+                'Accept' : 'application/json',
+                'Authorization': `Bearer ${token()}`
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.status === 'false' || result.status === false) {
+                toast.error(result.errors?.image?.[0] ?? 'Upload gambar gagal');
+            } else {
+                setImageId(result.data.id);
+            }
+        })
     }
-return (
-    <>
+  return (
+        <>
     <Header/>
         <main>
             <div className='container my-5'>
@@ -91,7 +91,7 @@ return (
                 <div className='card shadow border-0'>
                     <div className='card-body p-4'>
                         <div className='d-flex justify-content-between'>
-                            <h4 className='h5'>Services</h4>
+                            <h4 className='h5'>Services / Edit</h4>
                             <Link to="/admin/services" className='btn btn-primary'>Back</Link>
                         </div>
                         <hr />
@@ -176,4 +176,4 @@ return (
   )
 }
 
-export default Create
+export default Edit
