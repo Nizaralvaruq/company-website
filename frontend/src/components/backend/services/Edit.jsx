@@ -4,15 +4,17 @@ import Sidebar from '../../common/Sidebar'
 import Footer from '../../common/Footer'
 import { toast } from 'react-toastify'
 import JoditEditor from 'jodit-react';
-import { apiUrl, token } from '../../common/http'
-import { Link, useNavigate } from 'react-router-dom'
+import { apiUrl, token, fileUrl } from '../../common/http'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 
 const Edit = ({placeholder}) => {
     const editor = useRef(null);
     const [content, setContent] = useState('');
+    const [service, setService] = useState('');
     const [isDisable, setIsDisable] = useState(false);
     const [imageId, setImageId] = useState(null)
+    const params = useParams()
 
     const config = useMemo(
     () => ({
@@ -22,20 +24,37 @@ const Edit = ({placeholder}) => {
     [placeholder]
   );
 
-
     const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-    } = useForm()
-
+    } = useForm ({
+        defaultValues: async () => { 
+            const res= await fetch(apiUrl+'services/'+params.id,{
+                'method' : 'GET',
+                'headers' : {
+                    'Content-type' : 'application/json',
+                    'Accept' : 'application/json',
+                    'Authorization': `Bearer ${token()}`
+                }
+            })
+            const result = await res.json()
+            setContent(result.data.content)
+            setService(result.data)
+            return{
+                title: result.data.title,
+                slug : result.data.slug,
+                short_desc: result.data.short_desc
+            }
+        }
+    })
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
         const newData = { ...data, "content": content, "imageId": imageId}
-        const res= await fetch(apiUrl+'services',{
-                'method' : 'POST',
+        const res= await fetch(apiUrl+'services/'+params.id,{
+                'method' : 'PUT',
                 'headers' : {
                     'Content-type' : 'application/json',
                     'Accept' : 'application/json',
@@ -75,7 +94,7 @@ const Edit = ({placeholder}) => {
             }
         })
     }
-  return (
+return (
         <>
     <Header/>
         <main>
@@ -151,7 +170,14 @@ const Edit = ({placeholder}) => {
                                 <br/>
                                 <input onChange={handleFile} type="file"/>
                             </div>
-
+                            <div className='pb-3'>
+                                {service.image && (
+                                    <img
+                                        src={`${fileUrl}/uploads/services/small/${service.image}`}
+                                        alt=""
+                                    />
+                                )}
+                            </div>
                             <div className='mb-3'>
                                 <label htmlFor="" className='form-label'>Status</label>
                                 <select className="form-control"
