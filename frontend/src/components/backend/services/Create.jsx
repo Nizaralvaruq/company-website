@@ -45,6 +45,7 @@ const Create = ({placeholder}) => {
                 body: JSON.stringify(newData)
             })
             const result = await res.json()
+            
             if (result.status == true){
                 toast.success(result.message)
                 navigate('/admin/services')
