@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\TempImage;
 use File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File as FacadesFile;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
@@ -179,8 +180,8 @@ class ServiceController extends Controller
                 $service->save();
 
                 if ($oldImage != '') {
-                    File::delete(public_path('uploads/services/small/'.$oldImage));
-                    File::delete(public_path('uploads/services/large/'.$oldImage));
+                FacadesFile::delete(public_path('uploads/services/small/'.$oldImage));
+                FacadesFile::delete(public_path('uploads/services/large/'.$oldImage));
                 }
 
             }
@@ -205,6 +206,9 @@ class ServiceController extends Controller
                 'message'=> 'Service not found'
                 ]);
         }
+
+                FacadesFile::delete(public_path('uploads/services/small/'.$service->image));
+                FacadesFile::delete(public_path('uploads/services/large/'.$service->image));
 
         $service->delete();
         return response()->json([
