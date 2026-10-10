@@ -87,8 +87,8 @@ class ProjectController extends Controller
     }
 
     return response()->json([
-        'status'=> 'true',
-        'mesagge' =>'project  added succesfuly'
+        'status'=> true,
+        'message' => 'Project added successfully'
     ]);
 
     }
