@@ -58,6 +58,7 @@ const Create = ({placeholder}) => {
             const formData = new FormData()
             const file =e.target.files[0]
             formData.append("image",file)
+            setIsDisable(true)
 
                 const res= await fetch(apiUrl+'temp-images',{
                 'method' : 'POST',
@@ -69,6 +70,7 @@ const Create = ({placeholder}) => {
             })
             .then(response => response.json())
             .then(result => {
+                setIsDisable(false)
                 if (result.status === 'false' || result.status === false) {
                     toast.error(result.errors?.image?.[0] ?? 'Upload gambar gagal');
                 } else {
@@ -92,7 +94,7 @@ return (
                 <div className='card shadow border-0'>
                     <div className='card-body p-4'>
                         <div className='d-flex justify-content-between'>
-                            <h4 className='h5'>Projects</h4>
+                            <h4 className='h5'>Create Projects</h4>
                             <Link to="/admin/projects" className='btn btn-primary'>Back</Link>
                         </div>
                         <hr />

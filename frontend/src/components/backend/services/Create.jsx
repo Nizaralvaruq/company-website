@@ -58,6 +58,7 @@ const Create = ({placeholder}) => {
             const formData = new FormData()
             const file =e.target.files[0]
             formData.append("image",file)
+            setIsDisable(true)
 
                 const res= await fetch(apiUrl+'temp-images',{
                 'method' : 'POST',
@@ -69,6 +70,7 @@ const Create = ({placeholder}) => {
             })
             .then(response => response.json())
             .then(result => {
+                setIsDisable(false)
                 if (result.status === 'false' || result.status === false) {
                     toast.error(result.errors?.image?.[0] ?? 'Upload gambar gagal');
                 } else {

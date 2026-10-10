@@ -164,10 +164,10 @@ class ProjectController extends Controller
 
     }
 
-    return response()->json([
-        'status'=> 'true',
-        'mesagge' =>'project updated succesfuly'
-    ]);
+        return response()->json([
+        'status' => true,
+        'message' => 'Project updated successfully',
+        ]);
     }
 
         public function show($id) {
