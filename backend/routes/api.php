@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
@@ -39,6 +40,13 @@ Route::get('projects',[ProjectController::class,'index']);
 Route::put('projects/{id}',[ProjectController::class,'update']);
 Route::get('projects/{id}',[ProjectController::class,'show']);
 Route::delete('projects/{id}',[ProjectController::class,'destroy']);
+
+//article routes
+Route::post('articles',[ArticleController::class,'store']);
+Route::get('articles',[ArticleController::class,'index']);
+Route::get('articles/{id}',[ArticleController::class,'show']);
+Route::put('articles/{id}',[ArticleController::class,'update']);
+Route::delete('articles/{id}',[ArticleController::class,'destroy']);
 
 //Temp Image Route
 Route::post('temp-images',[TempImageController::class,'store']);
