@@ -4,7 +4,7 @@ import Header from '../common/Header';
 import Footer from '../common/Footer';
 
 import ConstructionImg from '../../assets/images/construction2.jpg';
-import BlogImg from '../../assets/images/construction3.jpg';
+
 
 import icon1 from '../../assets/images/icon-1.svg';
 import icon2 from '../../assets/images/icon-2.svg';
@@ -18,6 +18,7 @@ import About from '../common/about';
 import { apiUrl, token } from '../common/http';
 import LatestServices from '../common/LatestServices';
 import LatestProjects from '../common/LatestProjects';
+import LatestArticles from '../common/LatestArticles';
 
 
 const Home = () => {
@@ -265,60 +266,7 @@ return (
         </div>
 
       </section>
-    <section className='section-6 bg-light py-5'>
-      <div className='container pt-3'>
-        <div className='section-header text-center'>
-              <span>Blog & News</span>
-              <h2>Articles & blog posts</h2>
-              <p>We offer a diverse array of construction services, spanning residential, commercial, and industrial projects.</p>
-            </div>
-            <div className='row pt-3'>
-              <div className='col-md-4'>
-                <div className='card shadow border-0'>
-                <div className='card-img-top'>
-                    <img src={BlogImg} alt="" className='w-100'/>
-                </div>
-                <div className='card-body p-4'>
-                  <div className='mb-3'>
-                    <a href="#" className='title'>Dummy blog title</a>
-                  </div>
-                  <a href="#" className='btn btn-primary small'>Read More</a>
-                </div>
-                </div>
-              </div>
-
-              <div className='col-md-4'>
-                <div className='card shadow border-0'>
-                <div className='card-img-top'>
-                    <img src={BlogImg} alt="" className='w-100'/>
-                </div>
-                <div className='card-body p-4'>
-                  <div className='mb-3'>
-                    <a href="#" className='title'>Dummy blog title</a>
-                  </div>
-                  <a href="#" className='btn btn-primary small'>Read More</a>
-                </div>
-                </div>
-              </div>
-
-              <div className='col-md-4'>
-                <div className='card shadow border-0'>
-                <div className='card-img-top'>
-                    <img src={BlogImg} alt="" className='w-100'/>
-                </div>
-                <div className='card-body p-4'>
-                  <div className='mb-3'>
-                    <a href="#" className='title'>Dummy blog title</a>
-                  </div>
-                  <a href="#" className='btn btn-primary small'>Read More</a>
-                </div>
-                </div>
-              </div>
-
-            </div>
-      </div>
-
-    </section>
+    <LatestArticles/>
     </main>
     <Footer/>
     </>
