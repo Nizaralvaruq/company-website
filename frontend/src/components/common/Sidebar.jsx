@@ -8,12 +8,12 @@ const Sidebar = () => {
   return (
     <div className='card shadow border-0'>
         <div className='card-body p-4 sidebar'>
-            <h4>sidebar</h4>
+            <h4>Company Web</h4>
             <ul>
                 <li><Link to='/admin/dashboard'>Dashboard</Link></li>
                 <li><Link to='/admin/services'>Services</Link></li>
                 <li><Link to='/admin/projects'>Projects</Link></li>
-                <li><a href='#'>Articles</a></li>
+                <li><Link to='/admin/articles'>Articles</Link></li>
                 <li>
                     <button className='btn btn-primary mt-4' onClick={logout}>
                         Logout
