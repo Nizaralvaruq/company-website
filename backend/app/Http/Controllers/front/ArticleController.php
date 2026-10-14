@@ -29,6 +29,5 @@ class ArticleController extends Controller
         'status'=>true,
         'data'=>$articles
     ]);
-
-}
+    }
 }
