@@ -82,29 +82,29 @@ const Edit = ({placeholder}) => {
     }
 
     const handleFile = async (e) => {
-          const formData = new FormData()
-          const file =e.target.files[0]
-          formData.append("image",file)
-          setIsDisable(true)
+        const formData = new FormData()
+        const file =e.target.files[0]
+        formData.append("image",file)
+        setIsDisable(true)
 
-              const res= await fetch(apiUrl+'temp-images',{
-              'method' : 'POST',
-              'headers' : {
-                  'Accept' : 'application/json',
-                  'Authorization': `Bearer ${token()}`
-              },
-              body: formData
-          })
-          .then(response => response.json())
-          .then(result => {
-              setIsDisable(false)
-              if (result.status === 'false' || result.status === false) {
-                  toast.error(result.errors?.image?.[0] ?? 'Upload gambar gagal');
-              } else {
-                  setImageId(result.data.id);
-              }
-          })
-  }
+            const res= await fetch(apiUrl+'temp-images',{
+            'method' : 'POST',
+            'headers' : {
+                'Accept' : 'application/json',
+                'Authorization': `Bearer ${token()}`
+            },
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            setIsDisable(false)
+            if (result.status === 'false' || result.status === false) {
+                toast.error(result.errors?.image?.[0] ?? 'Upload gambar gagal');
+            } else {
+                setImageId(result.data.id);
+            }
+        })
+}
 
   return (
     <>

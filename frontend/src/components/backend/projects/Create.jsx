@@ -23,7 +23,6 @@ const Create = ({placeholder}) => {
     [placeholder]
   );
 
-
     const {
     register,
     handleSubmit,
@@ -79,7 +78,7 @@ const Create = ({placeholder}) => {
             })
     }
 return (
-     <>
+    <>
     <Header/>
         <main>
             <div className='container my-5'>
