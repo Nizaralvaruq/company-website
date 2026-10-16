@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
@@ -52,6 +53,12 @@ Route::get('articles/{id}',[ArticleController::class,'show']);
 Route::put('articles/{id}',[ArticleController::class,'update']);
 Route::delete('articles/{id}',[ArticleController::class,'destroy']);
 
+//testimonials route
+Route::post('testimonials',[TestimonialController::class,'store']);
+Route::get('testimonials',[TestimonialController::class,'index']);
+Route::get('testimonials/{id}',[TestimonialController::class,'show']);
+Route::put('testimonials/{id}',[TestimonialController::class,'update']);
+Route::delete('testimonials/{id}',[TestimonialController::class,'destroy']);
 //Temp Image Route
 Route::post('temp-images',[TempImageController::class,'store']);
 });
