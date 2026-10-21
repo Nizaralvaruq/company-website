@@ -58,6 +58,7 @@ class TestimonialController extends Controller
         $testimonial = new Testimonial();
         $testimonial -> testimonial = $request->testimonial;
         $testimonial -> citation = $request->citation;
+        $testimonial -> designation = $request->designation;
         $testimonial-> save();
 
         if ($request->imageId > 0) {
@@ -84,7 +85,7 @@ class TestimonialController extends Controller
 
         return response() ->json([
             'status' => true,
-            'mesagge'=> 'Testimonials added successfully'
+            'message'=> 'Testimonials added successfully'
         ]);
     }
 
@@ -111,6 +112,7 @@ class TestimonialController extends Controller
 
         $testimonial -> testimonial = $request->testimonial;
         $testimonial -> citation = $request->citation;
+        $testimonial -> designation = $request->designation;
         $testimonial-> save();
 
         if ($request->imageId > 0) {
@@ -143,7 +145,7 @@ class TestimonialController extends Controller
 
         return response() ->json([
             'status' => true,
-            'mesagge'=> 'Testimonials updated successfully'
+            'message'=> 'Testimonials updated successfully'
         ]);
     }
 

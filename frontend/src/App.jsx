@@ -25,7 +25,9 @@ import {default as EditProjects} from './components/backend/projects/Edit';
 import {default as ShowArticles} from './components/backend/articles/Show';
 import {default as CreateArticles} from './components/backend/articles/Create';
 import {default as EditArticles} from './components/backend/articles/Edit';
-
+import {default as ShowTestimonials} from './components/backend/testimonials/Show';
+import {default as CreateTestimonials} from './components/backend/testimonials/Create';
+import {default as EditTestimonials} from './components/backend/testimonials/Edit';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -101,6 +103,24 @@ function App() {
         <Route path='/admin/articles/edit/:id' element={
         <RequireAuth>
           <EditArticles />
+        </RequireAuth>
+        } />
+
+        <Route path='/admin/testimonials' element={
+        <RequireAuth>
+          <ShowTestimonials />
+        </RequireAuth>
+        } />
+
+        <Route path='/admin/testimonials/create' element={
+        <RequireAuth>
+          <CreateTestimonials />
+        </RequireAuth>
+        } />
+
+        <Route path='/admin/testimonials/edit/:id' element={
+        <RequireAuth>
+          <EditTestimonials />
         </RequireAuth>
         } />
 
