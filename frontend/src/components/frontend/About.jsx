@@ -4,6 +4,7 @@ import Footer from '../common/Footer';
 import {default as AboutNew} from '../common/about'
 import MemberImg from '../../assets/images/team-1.jpg'
 import Hero from '../common/Hero';
+import ShowTestimonial from '../common/ShowTestimonial'
 const About = () => {
   return (
     <>
@@ -108,6 +109,8 @@ const About = () => {
           </div>
       </div>
     </section>
+
+    <ShowTestimonial/>
 
     </main>
     <Footer/>
