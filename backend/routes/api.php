@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ServiceController;
 use App\Http\Controllers\admin\TempImageController;
@@ -63,6 +64,13 @@ Route::get('testimonials',[TestimonialController::class,'index']);
 Route::get('testimonials/{id}',[TestimonialController::class,'show']);
 Route::put('testimonials/{id}',[TestimonialController::class,'update']);
 Route::delete('testimonials/{id}',[TestimonialController::class,'destroy']);
+
+//members route
+Route::post('members',[MemberController::class,'store']);
+Route::get('members',[MemberController::class,'index']);
+Route::get('members/{id}',[MemberController::class,'show']);
+Route::put('members/{id}',[MemberController::class,'update']);
+Route::delete('members/{id}',[MemberController::class,'destroy']);
 //Temp Image Route
 Route::post('temp-images',[TempImageController::class,'store']);
 });
