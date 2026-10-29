@@ -19,15 +19,22 @@ import RequireAuth from './components/common/RequireAuth';
 import {default as ShowServices} from './components/backend/services/Show';
 import {default as CreateService} from './components/backend/services/Create';
 import {default as EditService} from './components/backend/services/Edit';
+
 import {default as ShowProjects} from './components/backend/projects/Show';
 import {default as CreateProjects} from './components/backend/projects/Create';
 import {default as EditProjects} from './components/backend/projects/Edit';
+
 import {default as ShowArticles} from './components/backend/articles/Show';
 import {default as CreateArticles} from './components/backend/articles/Create';
 import {default as EditArticles} from './components/backend/articles/Edit';
+
 import {default as ShowTestimonials} from './components/backend/testimonials/Show';
 import {default as CreateTestimonials} from './components/backend/testimonials/Create';
 import {default as EditTestimonials} from './components/backend/testimonials/Edit';
+
+import {default as ShowMembers} from './components/backend/members/Show';
+import {default as CreateMembers} from './components/backend/members/Create';
+import {default as EditMembers} from './components/backend/members/Edit';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -124,6 +131,23 @@ function App() {
         </RequireAuth>
         } />
 
+        <Route path='/admin/members' element={
+        <RequireAuth>
+          <ShowMembers />
+        </RequireAuth>
+        } />
+
+        <Route path='/admin/members/create' element={
+        <RequireAuth>
+          <CreateMembers />
+        </RequireAuth>
+        } />
+
+        <Route path='/admin/members/edit/:id' element={
+        <RequireAuth>
+          <EditMembers />
+        </RequireAuth>
+        } />
     </Routes>
     </BrowserRouter>
     <ToastContainer

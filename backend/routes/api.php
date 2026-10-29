@@ -12,6 +12,7 @@ use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\ArticleController as FrontArticleController;
 use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
+use App\Http\Controllers\front\MemberController as FrontMemberController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::get('get-articles',[FrontArticleController::class,'index']);
 Route::get('get-latest-articles',[FrontArticleController::class,'latestArticles']);
 
 Route::get('get-testimonials',[FrontTestimonialController::class,'index']);
+
+Route::get('get-members',[FrontMemberController::class,'index']);
 
 
 // Route::get('/user', function (Request $request) {
