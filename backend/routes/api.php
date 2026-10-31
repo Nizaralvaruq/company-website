@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('authenticate',[AuthenticationController::class,'authenticate']);
 Route::get('get-services',[FrontServiceController::class,'index']); 
 Route::get('get-latest-services',[FrontServiceController::class,'latestServices']); 
+Route::get('get-service/{id}',[FrontServiceController::class,'service']);
 
 Route::get('get-projects',[FrontProjectController::class,'index']);
 Route::get('get-latest-projects',[FrontProjectController::class,'latestProjets']);

@@ -30,4 +30,20 @@ class ServiceController extends Controller
             ]);
         
     }
+
+     //this method will return single service by id
+    public function service($id) {
+        $service = Service::find($id);
+
+        if($service == null) {
+            return response()->json([
+                'status'=> false,
+                'message'=> 'Service not found'
+                ]);
+        }
+        return response()->json([
+            'status'=> true,
+            'data'=> $service
+            ]);
+    }
 }
