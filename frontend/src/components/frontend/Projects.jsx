@@ -4,6 +4,7 @@ import Footer from '../common/Footer'
 import Hero from '../common/Hero'
 import ConstructionImg from '../../assets/images/construction2.jpg'
 import { apiUrl, fileUrl } from '../common/http'
+import { Link } from 'react-router-dom'
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -59,7 +60,7 @@ const Projects = () => {
                               <div className='service-content'>
                                   <p>{project.short_desc}</p>
                               </div>
-                              <a href='#' className='btn btn-primary'>Read more</a>
+                              <Link to= {`/project/${project.id}`} className='btn btn-primary'>Read more</Link>
                           </div>
                           </div>
                           </div>
