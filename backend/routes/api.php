@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\front\ServiceController as FrontServiceController;
 use App\Http\Controllers\front\ProjectController as FrontProjectController;
 use App\Http\Controllers\front\ArticleController as FrontArticleController;
+use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\TestimonialController as FrontTestimonialController;
 use App\Http\Controllers\front\MemberController as FrontMemberController;
 use Illuminate\Http\Request;
@@ -21,6 +22,7 @@ Route::post('authenticate',[AuthenticationController::class,'authenticate']);
 Route::get('get-services',[FrontServiceController::class,'index']); 
 Route::get('get-latest-services',[FrontServiceController::class,'latestServices']); 
 Route::get('get-service/{id}',[FrontServiceController::class,'service']);
+Route::post('contact-now',[ContactController::class,'index']);
 
 Route::get('get-projects',[FrontProjectController::class,'index']);
 Route::get('get-latest-projects',[FrontProjectController::class,'latestProjets']);
@@ -28,6 +30,7 @@ Route::get('get-project/{id}',[FrontProjectController::class,'project']);
 
 Route::get('get-articles',[FrontArticleController::class,'index']);
 Route::get('get-latest-articles',[FrontArticleController::class,'latestArticles']);
+Route::get('get-article/{id}',[FrontArticleController::class,'article']);
 
 Route::get('get-testimonials',[FrontTestimonialController::class,'index']);
 

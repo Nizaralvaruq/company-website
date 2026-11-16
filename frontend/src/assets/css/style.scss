@@ -4,7 +4,7 @@ $secondary-color: #FFB703;
 $text-color: black;
 $text-white: white;
 $dark-backgroud: #222725;
-$light-background: #abaead;
+$light-background: #6b6969;
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
@@ -120,7 +120,7 @@ footer{
 .btn-primary{
     background-color: $primary-color;
     border: 1px solid $primary-color;
-    
+
     font-size: 1em;
     text-transform: uppercase;
     &:hover{
@@ -132,7 +132,7 @@ footer{
 .btn-secondary{
     background-color: $secondary-color;
     border: 1px solid $secondary-color;
-    
+
     font-size: 1em;
     text-transform: uppercase;
     &:hover{
@@ -179,7 +179,7 @@ footer{
                 }
             }
         }
-        
+
         .service-image{
             position: relative;
             overflow: hidden;
@@ -264,7 +264,7 @@ footer{
             border-top-right-radius: 40px;
         }
         .card-body{
-            a.title{    
+            a.title{
                 font-size: 1.4em;
             }
         }
@@ -294,7 +294,7 @@ footer{
             border-top-right-radius: 40px;
         }
         .card-body{
-            a.title{    
+            a.title{
                 font-size: 1.4em;
             }
         .card-title{
@@ -313,8 +313,8 @@ footer{
     .card{
         border-radius: 40px;
         .card-body{
-            
-            
+
+
         }
     }
 }
@@ -322,6 +322,15 @@ footer{
 .section-10{
     .sidebar{
         border-radius: 40px;
+    }
+}
+
+.section-11{
+    .sidebar{
+        border-radius: 40px;
+        .title{
+            font-size: 1.2em;
+        }
     }
 }
 
@@ -349,7 +358,8 @@ footer{
     }
 }
 
-.service-detail-image {
+.service-detail-image,
+.detail-image {
     display: block;
     width: 100%;
     max-width: 700px;

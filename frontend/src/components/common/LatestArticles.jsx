@@ -3,6 +3,7 @@ import BlogImg from '../../assets/images/construction3.jpg';
 import { apiUrl, fileUrl } from './http';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LatestArticles = () => {
     const [articles, setArticles] = useState([]);
@@ -43,9 +44,9 @@ const LatestArticles = () => {
                 </div>
                 <div className='card-body p-4'>
                   <div className='mb-3'>
-                    <a href="#" className='title'>{article.title}</a>
+                    <Link to={`/blog/${article.id}`} className='title'>{article.title}</Link>
                   </div>
-                  <a href="#" className='btn btn-primary small'>Read More</a>
+                  <Link to={`/blog/${article.id}`} className='btn btn-primary small'>Read More</Link>
                 </div>
                 </div>
               </div>

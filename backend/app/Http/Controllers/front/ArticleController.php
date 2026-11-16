@@ -30,4 +30,20 @@ class ArticleController extends Controller
         'data'=>$articles
     ]);
     }
+
+    //this methode will return sigle artcile
+
+    public function article($id) {
+        $article = Article::find($id);
+        if(!$article) {
+            return response()->json([
+                'status'=>false,
+                'message'=>'Article not found'
+            ]);
+        }
+    return response()->json([
+        'status'=>true,
+        'data'=>$article
+    ]);
+    }
 }

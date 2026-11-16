@@ -37,6 +37,7 @@ import {default as CreateMembers} from './components/backend/members/Create';
 import {default as EditMembers} from './components/backend/members/Edit';
 import ServiceDetail from './components/frontend/ServiceDetail';
 import ProjectDetail from './components/frontend/ProjectDetail';
+import BlogDetail from './components/frontend/BlogDetail';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -53,6 +54,7 @@ function App() {
       <Route path='/contactus' element={<ContactUs/>} />
       <Route path='/service/:id' element={<ServiceDetail/>} />
       <Route path='/project/:id' element={<ProjectDetail/>} />
+      <Route path='/blog/:id' element={<BlogDetail/>} />
 
       <Route path='/admin/login' element={<Login/>} />
       <Route path='/admin/dashboard' element={

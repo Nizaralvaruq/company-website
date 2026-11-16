@@ -59,7 +59,11 @@ return (
                                         <input
                                         {
                                             ...register('email',{
-                                                required: "This field is required"
+                                                required: "This field is required",
+                                                pattern: {
+                                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                                    message: "Invalid email address"
+                                                }
                                             })
                                         }
                                         id="email"
@@ -74,9 +78,11 @@ return (
                                         <div className='mb-3'>
                                         <label htmlFor="password" className='form-label'>Password</label>
                                         <input
-                                        {...register('password', {
-                                            required: "This field is required"
-                                        })}
+                                        {
+                                            ...register('password', {
+                                                required: "This field is required"
+                                            })
+                                        }
                                         id="password"
                                         type="password"
                                         placeholder='Password'

@@ -73,7 +73,7 @@ const ServiceDetail = () => {
                     <div>
                         {service?.image && (
                             <img
-                                className='img-fluid service-detail-image'
+                                className='img-fluid detail-image'
                                 src={`${fileUrl}/uploads/services/large/${service.image}`}
                                 alt={service.title || 'Service'}
                             />
@@ -83,13 +83,10 @@ const ServiceDetail = () => {
                     <div dangerouslySetInnerHTML={{__html:service.content}}></div>
                 </div>
             </div>
-            <div className='row'>
-                <div className='col-md-12'>
-                    <ShowTestimonial/>
-                </div>
-
-            </div>
         </div>
+        </section>
+        <section className='section-11 bg-light'>
+            <ShowTestimonial/>
         </section>
     </main>
 

@@ -6,6 +6,7 @@ import BlogImg from '../../assets/images/construction3.jpg';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { apiUrl, fileUrl } from '../common/http';
+import { Link } from 'react-router-dom';
 
 const Blogs = () => {
   const [articles, setArticles] = useState([]);
@@ -55,9 +56,9 @@ const Blogs = () => {
                 </div>
                 <div className='card-body p-4'>
                   <div className='mb-3'>
-                    <a href="#" className='title'>{article.title}</a>
+                    <Link to={`/blog/${article.id}`} className='title'>{article.title}</Link>
                   </div>
-                  <a href="#" className='btn btn-primary small'>Read More</a>
+                  <Link to={`/blog/${article.id}`} className='btn btn-primary small'>Read More</Link>
                 </div>
                 </div>
               </div>
